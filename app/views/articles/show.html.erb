@@ -1,0 +1,27 @@
+<div id="carouselExampleCaptions" class="carousel slide relative" data-bs-ride="carousel">
+  <div class="carousel-indicators absolute right-0 bottom-0 left-0 flex justify-center p-0 mb-4">
+    <button
+      type="button"
+      data-bs-target="#carouselExampleCaptions"
+      data-bs-slide-to="0"
+      class="active"
+      aria-current="true"
+      aria-label="Slide 1"
+    ></button>
+    
+  </div>
+  <div class="carousel-inner relative w-full overflow-hidden">
+    <div class="carousel-item active relative float-left w-full">
+      <div class="relative overflow-hidden bg-no-repeat bg-cover" style="background-position: 50%;">
+        <div class="block w-full" style="padding-left: 280px;">
+          <%= image_tag(@article.image.url, alt: 'Image') if @article.image? %>
+        </div><br>
+        <div class="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed bg-black opacity-50"></div>
+      </div>
+      <div class="carousel-caption hidden md:block absolute text-center">
+        <h2 class="text-xl"><b><%= @article.title%></b></h2><br>
+        <p><%= @article.body%></p>
+      </div>
+    </div>
+  </div>
+</div>

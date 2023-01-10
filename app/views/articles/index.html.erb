@@ -1,0 +1,61 @@
+<div class="container flex justify-center mx-auto">
+  <div class="flex flex-col">
+    <div class="w-full">
+      <div class="border-b border-gray-200 shadow">
+        <table class="divide-y divide-gray-300 ">
+          <thead class="bg-gray-50">
+            <tr>
+              <th class="px-6 py-2 text-xs text-gray-500">
+                  Image
+              </th>
+              <th class="px-6 py-2 text-xs text-gray-500">
+                  Title
+              </th>
+              <th class="px-6 py-2 text-xs text-gray-500">
+                  Description
+              </th>
+              <th class="px-6 py-12 text-xs text-gray-500", style="justify-center;" colspan="3">
+                  Actions
+              </th>
+            </tr>
+          </thead>
+          <% @articles.each do |article| %>
+            <tbody class="bg-white divide-y divide-gray-300">
+              <tr class="whitespace-nowrap">
+                <td style="width: 200px; height: 200px;">
+                  <%= image_tag(article.image.url, alt: 'Image') if article.image? %>
+                </td>
+                <td class="px-6 py-4">
+                    <div class="text-sm text-gray-900">
+                        <%=article.title%>
+                    </div>
+                </td>
+                <td class="px-6 py-4">
+                    <div class="text-sm text-gray-500">jhondoe@example.com</div>
+                </td>
+
+                <td class="px-6 py-4">
+                    <%= link_to "",article,class:"px-4 py-1 text-sm text-blue-600 bg-blue-200 rounded-full",class:"fa-solid fa-eye" %> 
+                </td>
+
+                <td class="px-6 py-4">
+                    <%= link_to "", edit_article_path(article),class:"px-4 py-1 text-sm text-blue-600 bg-blue-200 rounded-full",class:"fa-solid fa-pen" %>
+                </td>
+
+                <td class="px-6 py-4">
+                  <%= link_to "", article_path(article), data: {
+                      turbo_method: :delete,
+                      turbo_confirm: "Are you sure?",class:"px-4 py-1 text-sm text-red-400 bg-red-200 rounded-full"
+                    },class:"fa-solid fa-trash-can" %>
+                </td>
+              </tr>
+            </tbody>
+          <%end%>
+        </table>
+         <div class="mx-auto text-center my-4">
+            <%= will_paginate @articles %>
+         </div>
+      </div>
+    </div>
+  </div>
+</div>
