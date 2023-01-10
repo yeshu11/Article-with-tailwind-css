@@ -13,8 +13,9 @@
   <div class="carousel-inner relative w-full overflow-hidden">
     <div class="carousel-item active relative float-left w-full">
       <div class="relative overflow-hidden bg-no-repeat bg-cover" style="background-position: 50%;">
-        <div class="block w-full" style="padding-left: 280px;">
-          <%= image_tag(@article.image.url, alt: 'Image') if @article.image? %>
+        <div class="block w-full" style="text-align: center; padding-right: 85px; max-width: 50%; margin-left: auto; margin-right: auto">
+          <!-- <%#= image_tag(@article.image.url, alt: 'Image') if @article.image? %> -->
+          <%= image_tag(@article.image.url, :size => "1280 x 720") %>
         </div><br>
         <div class="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed bg-black opacity-50"></div>
       </div>
@@ -25,3 +26,4 @@
     </div>
   </div>
 </div>
+
